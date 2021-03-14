@@ -44,11 +44,11 @@ def RandomizedQuickSort(A, l, r):
 
     # sort recursively left side of pivot which is in final pos
     if (pivot - l) < (r - pivot):
-      QuickSort(A, l, pivot - 1)
+      RandomizedQuickSort(A, l, pivot - 1)
       l = pivot + 1
     # sort recurively right side of pivot which is in final pos
     else:
-      QuickSort(A, pivot + 1, r)
+      RandomizedQuickSort(A, pivot + 1, r)
       r = pivot - 1
   return A
 
