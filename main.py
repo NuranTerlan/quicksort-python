@@ -16,7 +16,7 @@ def PartitionSeparator(A, l, r):
 
 
 def QuickSort(A, l, r):
-  print(f"let's start to quick sort {A} this array")
+  print(f"let's start to quick sort array {A}")
   if l >= r:
     return A
   pivot = PartitionSeparator(A, l, r)
