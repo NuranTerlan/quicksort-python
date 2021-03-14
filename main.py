@@ -16,33 +16,41 @@ def PartitionSeparator(A, l, r):
 
 
 def QuickSort(A, l, r):
-  print(f"let's start to quick sort array {A}")
-  if l >= r:
-    return A
-  pivot = PartitionSeparator(A, l, r)
-  print(f"pivot is {pivot}")
-  # A[pivot] is in the final position
+  while l < r:
+    print(f"let's start to quick sort array {A}")
+    pivot = PartitionSeparator(A, l, r)
+    print(f"pivot is {pivot}")
+    # A[pivot] is in the final position
 
-  # sort recursively left side of pivot which is in final pos
-  QuickSort(A, l, pivot - 1)
-  # sort recurively right side of pivot which is in final pos
-  QuickSort(A, pivot + 1, r)
+    # sort recursively left side of pivot which is in final pos
+    if (pivot - l) < (r - pivot):
+      QuickSort(A, l, pivot - 1)
+      l = pivot + 1
+    # sort recurively right side of pivot which is in final pos
+    else:
+      QuickSort(A, pivot + 1, r)
+      r = pivot - 1
+  return A
 
 
 def RandomizedQuickSort(A, l, r):
-  print(f"let's start to quick sort array {A}")
-  if l >= r:
-    return A
-  random_key = random.randint(l, r)
-  A[l], A[random_key] = A[random_key], A[l]
-  pivot = PartitionSeparator(A, l, r)
-  print(f"pivot is {pivot}")
-  # A[pivot] is in the final position
+  while l < r:
+    print(f"let's start to quick sort array {A}")
+    random_key = random.randint(l, r)
+    A[l], A[random_key] = A[random_key], A[l]
+    pivot = PartitionSeparator(A, l, r)
+    print(f"pivot is {pivot}")
+    # A[pivot] is in the final position
 
-  # sort recursively left side of pivot which is in final pos
-  RandomizedQuickSort(A, l, pivot - 1)
-  # sort recurively right side of pivot which is in final pos
-  RandomizedQuickSort(A, pivot + 1, r)
+    # sort recursively left side of pivot which is in final pos
+    if (pivot - l) < (r - pivot):
+      QuickSort(A, l, pivot - 1)
+      l = pivot + 1
+    # sort recurively right side of pivot which is in final pos
+    else:
+      QuickSort(A, pivot + 1, r)
+      r = pivot - 1
+  return A
 
 
 unsorted_arr = [random.randint(1, 100) for _ in range(20)]
