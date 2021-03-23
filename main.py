@@ -25,6 +25,8 @@ def Partition3Separator(A, l, r):
 
 
 def QuickSort(A, l, r):
+  if l >= r:
+    return A
   print(f"let's start to quick sort array {A}")
   random_key = random.randint(l, r)
   A[l], A[random_key] = A[random_key], A[l]
@@ -36,7 +38,6 @@ def QuickSort(A, l, r):
   QuickSort(A, l, pivot_range[0] - 1)
   # sort recurively right side of pivot which is in final pos
   QuickSort(A, pivot_range[1] + 1, r)
-  return A
 
 
 def RandomizedQuickSort(A, l, r):
